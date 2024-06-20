@@ -1,0 +1,33 @@
+{
+  "name": "m_monolith",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && node copy-protos.js",
+    "start:dev": "nodemon --exec ts-node src/server.ts",
+    "start": "node dist/server.js",
+    "build:start": "npm run build && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.9",
+    "@grpc/proto-loader": "^0.7.13",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.6",
+    "express": "^4.19.2",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "grpc-tools": "^1.12.4",
+    "protoc-gen-ts": "^0.8.7",
+    "ts-protoc-gen": "^0.15.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2"
+  }
+}

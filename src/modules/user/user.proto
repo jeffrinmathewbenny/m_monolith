@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package user;
+
+message User {
+  string userId = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message GetUserRequest {
+  string userId = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message CreateUserRequest {
+  User user = 1;
+}
+
+message UpdateUserRequest {
+  string userId = 1;
+  User updatedUser = 2;
+}
+
+message DeleteUserRequest {
+  string userId = 1;
+}
+
+message DeleteUserResponse {
+  bool success = 1;
+}
+
+message GetUsersResponse {
+  repeated User users = 1;
+}
+
+message GetUserWithProductRequest {
+  string userId = 1;
+}
+
+message Product {
+  string productId = 1;
+  string name = 2;
+  double price = 3;
+}
+
+message GetUserWithProductResponse {
+  User user = 1;
+  Product product = 2;
+}
+
+message Empty {}
+
+service UserService {
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc CreateUser (CreateUserRequest) returns (User);
+  rpc UpdateUser (UpdateUserRequest) returns (User);
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+  rpc GetUsers (Empty) returns (GetUsersResponse);
+  rpc GetUserWithProduct (GetUserWithProductRequest) returns (GetUserWithProductResponse);
+}
